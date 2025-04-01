@@ -1,0 +1,16 @@
+---
+title: "Descripcion_Datos"
+author: "Judit Martía Sebares Huerta"
+date: "2025-04-01"
+output: html_document
+---
+
+Los datos con los que hemos trabajado se pueden encontrar [aquí](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Project&ProjectID=PR000699).
+
+Se trata de una base de datos con dos tablas :
+
+-   **Data** con los datos de las muestras y los metabolitos, así como el tipo de tejido del que proceden las muestas.
+
+-   **Peak** que es lo que consideramos como metadatos.
+
+    -   En este archivo vienen los nombres de lo metabolitos, el porcentaje de metabolitos que faltan a lo largo de las muestras, la variación en las medidas del metabolito a lo largo de todas las muestras (columna QC RSD)

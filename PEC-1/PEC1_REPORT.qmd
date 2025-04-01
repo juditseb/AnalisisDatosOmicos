@@ -9,7 +9,7 @@ toc-title: "Índice"
 
 # Resumen
 
-Este estudio explora una base de datos de cáncer gástrico mediante análisis metabolómico. Se realizó una limpieza exhaustiva de datos, seguida de análisis estadísticos descriptivos y de componentes principales utilizando la función SummarizedExperiment de Bioconductor. Los resultados revelan patrones distintivos en tres metabolitos clave: M1 (sobreexpresado en cáncer gástrico), M138 (elevado en procesos tumorales sin distinción entre benignos y malignos) y M70 (reducido en cáncer gástrico comparado con tejido sano).
+Este estudio explora una base de datos de cáncer gástrico mediante análisis metabolómico. Se realizó una limpieza exhaustiva de datos, seguida de análisis estadísticos descriptivos y de componentes principales utilizando la función SummarizedExperiment de Bioconductor. Los resultados revelan patrones distintivos en tres metabolitos clave: M7 (sobreexpresado en cáncer gástrico), M138 (elevado en procesos tumorales sin distinción entre benignos y malignos) y M70 (reducido en cáncer gástrico comparado con tejido sano).
 
 El análisis de componentes principales muestra cierto solapamiento entre grupos, aunque con algunos valores atípicos en pacientes con cáncer que podrían indicar diferentes estadios de la enfermedad. Aunque se identificaron posibles biomarcadores, se recomienda realizar pruebas estadísticas adicionales para evaluar la significancia de las diferencias observadas. La metodología empleada facilitó tanto el análisis como la visualización dinámica de datos mediante la librería iSEE.
 
@@ -170,7 +170,7 @@ Hemos visualizado la abundancia de expresión de los diferentes metabolitos en l
 
 ###### [**Metabolito 7**]{.underline}
 
-```{r}
+```{r fig.width=4, fig.height=3}
 #| message: false
 #| warning: false
 se <- iSEE::cleanDataset(se)
@@ -200,11 +200,11 @@ dot.plot
 
 En el gráfico de violín para el metabolito M7 podemos ver una sobredispersión del numero de conteos y además un alto número de conteos de la clase GC , lo que indica una variabilidad metabólica en las muestras de cáncer. Vemos que las muestraGs de pacientes anos tienen menos conteos, lo que nos indican que es menos a abundante en tejido sano.
 
-###### [Metabolito M138]{.underline}
+###### [Metabolito M138]{.underline}[^1]
 
-El código de R empleado para hacer el gráfico no se muestra dado que es el mismo que el empleado para el metabolito 1.
+[^1]: El código de R empleado para hacer el gráfico no se muestra dado que es el mismo que elempleado para el metabolito 1
 
-```{r}
+```{r,  fig.width=4, fig.height=3}
 #| echo: false
 # Asegurar que 'se' contiene los datos correctos
 se <- se
@@ -250,11 +250,11 @@ dot.plot
 
 En este caso, también observamos que es un metabolito sobreexpresado en procesos tumorales aunque al contrario que M1, parece no distinguir entre tumores benignos y malignos ya que parece expresado de manera similar. Podría indicarnos otro biomarcador útil para tumores aunque no para distinguirlos entre ellos.
 
-###### [**Metabolito 70**]{.underline}
+###### [**Metabolito 70**]{.underline}[^2]
 
-El código de R empleado para hacer el gráfico no se muestra dado que es el mismo que el empleado para el metabolito 1 y 138.
+[^2]: El código de R empleado para hacer el gráfico no se muestra dado que es el mismo que elempleado para el metabolito 1
 
-```{r}
+```{r fig.width=4, fig.height=3}
 #| echo: false
 #| message: false
 #| warning: false
@@ -304,8 +304,6 @@ A diferencia de los metabolitos anteriores (M7 y M138), el metabolito M70 muestr
 
 -   El hecho de que los tumores benignos muestren un nivel intermedio sugiere que la reducción de M70 podría correlacionarse con la progresión de la malignidad.
 
--   Este metabolito podría representar una vía metabólica protectora que se pierde durante la progresión del cáncer gástrico.
-
 ##### Análisis de los componentes principales empleando MixOmics
 
 Se ha realizado un análisis de los componentes principales empleando el paquete **MixOmics**.
@@ -326,7 +324,7 @@ plotIndiv(pca_modelo, group = Y,ind.names = FALSE, ellipse = TRUE, legend = TRUE
 
 En este gráfico podemos ver losdos primeros componentes principales (PC1 y PC2).
 
--   El PC1 explica el 30% de la varianza total de los datos mientras que el PC2 explica el 10% de la varianza total.
+-   El PC1 explica el 30% de la varianza total de los datos mientras que el PC2 explica el 8% de la varianza total.
 
 Los círculos azules responden a muestras con tumor benigno, los triángulos naranjas corresponden a las muestras con cáncer gástrico, las cruces grises a los sanos y las cruces verdes al control de calidad
 
@@ -334,7 +332,7 @@ Se observan algunos outlier especialmente en los grupos GC (cáncer gástrico) y
 
 # Discusión
 
-El análisis del conteo de metabolitos nos ha permitido determinar los metabolitos que están más expresados en según qué tipos de pacientes. Dado que nuestra base de datos contaba con más de 149 metabolitos, solamente hemos seleccionado 3 para realizar el análisis.
+El **análisis del conteo de metabolitos** nos ha permitido determinar los metabolitos que están más expresados en según qué tipos de pacientes. Dado que nuestra base de datos contaba con más de 149 metabolitos, solamente hemos seleccionado 3 para realizar el análisis.
 
 El **metabolito 7** (M7) parece estar sobreexpresada en cáncer gástrico en comparación con las muestras del tejido sano. Por otro lado, se puede apreciar que los tumores benignos presentan un nivel intermedio de esta característica.
 
@@ -344,9 +342,7 @@ El **metabolito 138** (M138) al igual que el metabolito 1, parece estar sobreexp
 
 El **metabolito 70** (M70) al contario de los dos metabolitos estudiados anteriormente, parece estar dismunido en el cáncer gástrico en comparación los tejidos sanos y los tumores benignos. Se podría pensar que este metabolito está presente en vías metabólicas que están suprimidas en el cáncer gástrico.
 
-En el análisis de los componentes principales no se ve una clara separación entre los diferentes grupos, lo que nos puede indicar un cierto solapamiento entre los perfiles metabólicos.
-
-Por otro lado, vemos que las muestras de control de calidad (QC) están agrupadas en el centro, lo que es un buen indicador de la estabilidad analítica.
+En el **análisis de los componentes principales** no se ve una clara separación entre los diferentes grupos, lo que nos puede indicar un cierto solapamiento entre los perfiles metabólicos.
 
 Sí que se observan algunos pacientes con cáncer gástrico (GC) con valores atípicos que podrían ser significativos, esto podría indicar diferentes estadios dentro de la enfermedad o diferentes tipos de metabolitos. Los pacientes sanos y con tumores benignos, muestras patrones de distribución más compactos.
 
@@ -362,4 +358,4 @@ Por otro lado, cabe destacar el empleo de la clase Summarized Experiment nos ha 
 
 Repositorio de Github : <https://github.com/juditseb/AnalisisDatosOmicos.git>
 
-Paper con la base de datos : Chan, A., Mercier, P., Schiller, D.*et al.*1H-NMR urinary metabolomic profiling for diagnosis of gastric cancer.*Br J Cancer***114**, 59–62 (2016). https://doi.org/10.1038/bjc.2015.414 \\end{document}
+Artículo con la base de datos : Chan, A., Mercier, P., Schiller, D.*et al.*1H-NMR urinary metabolomic profiling for diagnosis of gastric cancer.*Br J Cancer***114**, 59–62 (2016). https://doi.org/10.1038/bjc.2015.414 \\end{document}
