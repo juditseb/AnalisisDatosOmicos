@@ -8,7 +8,8 @@ toc-title: "Índice"
 ---
 
 # Resumen
-Este estudio explora una base de datos de cáncer gástrico mediante análisis metabolómico. Se realizó una limpieza exhaustiva de datos, seguida de análisis estadísticos descriptivos y de componentes principales utilizando la función SummarizedExperiment de Bioconductor. Los resultados revelan patrones distintivos en tres metabolitos clave: M1 (sobreexpresado en cáncer gástrico), M138 (elevado en procesos tumorales sin distinción entre benignos y malignos) y M70 (reducido en cáncer gástrico comparado con tejido sano). 
+
+Este estudio explora una base de datos de cáncer gástrico mediante análisis metabolómico. Se realizó una limpieza exhaustiva de datos, seguida de análisis estadísticos descriptivos y de componentes principales utilizando la función SummarizedExperiment de Bioconductor. Los resultados revelan patrones distintivos en tres metabolitos clave: M1 (sobreexpresado en cáncer gástrico), M138 (elevado en procesos tumorales sin distinción entre benignos y malignos) y M70 (reducido en cáncer gástrico comparado con tejido sano).
 
 El análisis de componentes principales muestra cierto solapamiento entre grupos, aunque con algunos valores atípicos en pacientes con cáncer que podrían indicar diferentes estadios de la enfermedad. Aunque se identificaron posibles biomarcadores, se recomienda realizar pruebas estadísticas adicionales para evaluar la significancia de las diferencias observadas. La metodología empleada facilitó tanto el análisis como la visualización dinámica de datos mediante la librería iSEE.
 
@@ -104,10 +105,10 @@ raw_data_filtrado <- raw_data %>%
 raw_data <- raw_data_filtrado
 
 ```
-Antes de procesar los datos tendremos que limpiar la base de datos. La columna Perc_missing nos indica el % de metabolitos para los que no hay datos. 
+
+Antes de procesar los datos tendremos que limpiar la base de datos. La columna Perc_missing nos indica el % de metabolitos para los que no hay datos.
 
 Podemos escoger únicamente las muestras que tengan menos del 10% de datos faltantes.
-
 
 #### Creación de la clase Summarized Experiment
 
@@ -335,7 +336,7 @@ Se observan algunos outlier especialmente en los grupos GC (cáncer gástrico) y
 
 El análisis del conteo de metabolitos nos ha permitido determinar los metabolitos que están más expresados en según qué tipos de pacientes. Dado que nuestra base de datos contaba con más de 149 metabolitos, solamente hemos seleccionado 3 para realizar el análisis.
 
-El **metabolito 7** (M1) parece estar sobreexpresada en cáncer gástrico en comparación con las muestras del tejido sano. Por otro lado, se puede apreciar que los tumores benignos presentan un nivel intermedio de esta característica.
+El **metabolito 7** (M7) parece estar sobreexpresada en cáncer gástrico en comparación con las muestras del tejido sano. Por otro lado, se puede apreciar que los tumores benignos presentan un nivel intermedio de esta característica.
 
 Al observar una separación en los conteos entre los pacientes de cáncer y los sanos podemos deducir que se puede emplear como biomarcador.
 
@@ -359,7 +360,6 @@ Por otro lado, cabe destacar el empleo de la clase Summarized Experiment nos ha 
 
 # Referencias
 
-Repositorio de Github
+Repositorio de Github : <https://github.com/juditseb/AnalisisDatosOmicos.git>
 
-Paper con la base de datos : Chan, A., Mercier, P., Schiller, D.*et al.*1H-NMR urinary metabolomic profiling for diagnosis of gastric cancer.*Br J Cancer***114**, 59–62 (2016). https://doi.org/10.1038/bjc.2015.414
-\end{document}
+Paper con la base de datos : Chan, A., Mercier, P., Schiller, D.*et al.*1H-NMR urinary metabolomic profiling for diagnosis of gastric cancer.*Br J Cancer***114**, 59–62 (2016). https://doi.org/10.1038/bjc.2015.414 \\end{document}
